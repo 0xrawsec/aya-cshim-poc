@@ -8,11 +8,14 @@ use aya_bpf::{
 };
 use aya_log_ebpf::{error, info};
 
+// We define here the prototypes of our C shim functions. These must
+// have the exact same name and prototype as the ones written in C, so that the
+// linking works correctly.
 #[allow(improper_ctypes)]
 extern "C" {
     // working with c_void here prevents having to define structures
-    // in Rust, which might be seen as an uncessary (as we won't use
-    // structs to access fields) burden.
+    // in Rust, which might be seen as an uncessary burden, as we won't use
+    // structs to access fields.
     fn task_struct_pid(task: *const c_void) -> c_int;
     fn task_struct_tgid(task: *const c_void) -> c_int;
     fn task_struct_comm(task: *const c_void) -> *const u8;
