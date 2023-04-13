@@ -6,8 +6,8 @@
 //#include <bpf/bpf_core_read.h>
 
 /*
-IMPORTANT: it seems defining and using typedefs (for structs) in shim does
-makes it fail at linking.
+IMPORTANT: it seems defining and using typedefs (for structs) in shim
+makes it fail at linking, so don't do it.
 */
 
 // this just a simple C macro to make easier shim definition
@@ -26,6 +26,7 @@ struct kuid_t {
 } __attribute__((preserve_access_index));
 
 // Defining shim for cred struct
+// We just need to define the fields we need to access
 
 struct cred {
 	struct kuid_t uid;
@@ -36,6 +37,7 @@ SHIM(uid_t cred_uid(struct cred *pcred), pcred->uid.val);
 SHIM(gid_t cred_gid(struct cred *pcred), pcred->uid.val);
 
 // Defining shim for task_struct
+// We just need to define the fields we need to access
 
 struct task_struct {
 	pid_t pid;

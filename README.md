@@ -32,7 +32,7 @@ in such a way your eBPF binary contains BTF information the Linux kernel can
 handle.
 
 Basically, to install a `bpf-linker` which will work with this example and with 
-C-shim in general, you should follow the instructions here: https://github.com/vadorovsky/aya-btf-maps-experiments. **Right after you will find a set of condensed instructions** to achieve the same goal.
+C-shim in general, you should follow the instructions here: https://github.com/vadorovsky/aya-btf-maps-experiments. **Right after you can find a set of condensed instructions** to achieve the same goal.
 
 ### Instructions to build custom LLVM
 1. clone forked llvm: `git clone https://github.com/vadorovsky/llvm-project.git`
@@ -50,7 +50,7 @@ to revert those changes go back to the original procedure of installing `bpf-lin
 1. clone forked `bpf-linker`: `git clone https://github.com/vadorovsky/bpf-linker.git`
 1. `cd bpf-linker`
 1. `git checkout fix-di`
-1. Install custom `bpf-linker` : `LLVM_SYS_160_PREFIX=/home/quentin/Downloads/llvm-project/build cargo install --path . --no-default-features --features system-llvm bpf-linker`
+1. Install custom `bpf-linker` : `LLVM_SYS_160_PREFIX=/path/to/llvm-project/build cargo install --path . --no-default-features --features system-llvm bpf-linker`
 
 
 ## Build eBPF
