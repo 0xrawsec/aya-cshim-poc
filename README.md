@@ -1,6 +1,6 @@
 As you may know, BPF **CO-RE** is not supported by Aya from Rust code.
 Supporting **CO-RE** directly from Rust code is a consequent work as it requires
-to modify the `rustc` target to compile to bpf and this is in the pipe of Aya team.
+modifying the `rustc` target to compile to bpf and this is in the pipe of Aya team.
 However, a work around can be made by defining so-called shim functions in C
 to access structures you need **CO-RE** support for. These functions are
 then linked to your eBPF binary using `bpf-linker`, but this is totally
